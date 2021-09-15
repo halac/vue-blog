@@ -46,7 +46,9 @@ export default {
             body: body.value,
             tags: tags.value
           }
-          const res = await projectFirestore.collection('posts').add()
+          const res = await projectFirestore.collection('posts').add(post)
+          // console.log(res)
+          
           router.push({ name: 'Home'})
         }
 
