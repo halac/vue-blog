@@ -21,7 +21,7 @@
 
 <script>
 import { ref } from 'vue'
-import { projectFirestore } from '../firebase/config'
+import { projectFirestore, timestamp } from '../firebase/config'
 import { useRouter } from 'vue-router'
 export default {
     setup() {
@@ -44,7 +44,8 @@ export default {
           const post = {
             title: title.value,
             body: body.value,
-            tags: tags.value
+            tags: tags.value,
+            createdAt: timestamp()
           }
           const res = await projectFirestore.collection('posts').add(post)
           // console.log(res)
